@@ -1,8 +1,12 @@
 FROM python:3.11-slim
 
 WORKDIR /app
-COPY ./app /app
 
-RUN pip install --no-cache-dir numpy matplotlib
+COPY requirements.txt requirements.txt
 
-CMD ["python", "main.py"]
+RUN pip install --upgrade pip && \
+    pip install -r requirements.txt
+
+COPY ./src /app/src
+
+CMD ["python", "src/main.py"]

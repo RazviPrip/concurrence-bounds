@@ -1,6 +1,8 @@
-version: '3'
+version: "3.9"
+
 services:
-  plotter:
+  entanglement-bounds:
     build: .
     volumes:
-      - ./output:/app/output
+      - ./src:/app/src
+      - ./plots:/app/plots
